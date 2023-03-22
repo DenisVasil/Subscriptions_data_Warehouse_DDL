@@ -66,7 +66,7 @@ CREATE TABLE dim_customer (
 	last_name varchar(50),
 	gender char(1) NOT NULL,
 	birth_date date NOT NULL,
-	rmail_address varchar(50) NOT NULL,
+	email_address varchar(50) NOT NULL,
 	address1 varchar(120) NOT NULL,
 	address2 varchar(120),
 	phone varchar(20) NOT NULL,
