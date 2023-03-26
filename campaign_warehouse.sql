@@ -1,4 +1,4 @@
-CREATE TABLE fact_communication_subscription (
+CREATE TABLE IF NOT EXISTS fact_communication_subscription (
 	customer_key bigint NOT NULL,
 	communication_key bigint NOT NULL,
 	channel_key bigint NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE fact_communication_subscription (
 		PRIMARY KEY ( communication_key, customer_key, date_key)
 	);
 
-CREATE TABLE dim_communication(
+CREATE TABLE IF NOT EXISTS dim_communication(
 	communication_key bigserial NOT NULL,
 	title varchar(50),
 	description varchar(200),
@@ -30,7 +30,7 @@ CREATE TABLE dim_communication(
 	PRIMARY KEY (communication_key)
 );
 
-CREATE TABLE dim_subscription_status (
+CREATE TABLE IF NOT EXISTS dim_subscription_status (
 	subscription_status_key bigserial NOT NULL,
 	subscription_status_code char(2),
 	description varchar(50),
@@ -41,7 +41,7 @@ CREATE TABLE dim_subscription_status (
 	PRIMARY KEY (subscription_status_key)
 );
 
-CREATE TABLE dim_channel (
+CREATE TABLE IF NOT EXISTS dim_channel (
 	channel_key bigserial NOT NULL,
 	name_ varchar(20),
 	description varchar(50),
@@ -55,7 +55,7 @@ CREATE TABLE dim_channel (
 	PRIMARY KEY (channel_key)
 );
 
-CREATE TABLE dim_customer (
+CREATE TABLE IF NOT EXISTS dim_customer (
 	customer_key bigserial NOT NULL,
 	customer_id integer NOT NULL,
 	account_number integer NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE dim_customer (
 	
 );
 
-CREATE TABLE dim_date (
+CREATE TABLE IF NOT EXISTS dim_date (
 	date_key bigserial NOT NULL,
 	subscription_start_date timestamp with time zone NOT NULL,
 	subscription_end_date timestamp with time zone,
